@@ -2,14 +2,14 @@ import { ResourceType } from "./resourceType";
 
 export class Resource {
   private readonly _type: ResourceType;
-  private readonly _winsFromTypes: ResourceType[] = [];
+  private readonly _winsFromTypes = new Map();
 
-  constructor(type: ResourceType) {
-    if (!type) {
+  constructor(resourceType: ResourceType) {
+    if (!resourceType) {
       throw new Error('type not found')
     }
 
-    this._type = type;
+    this._type = resourceType;
   }
 
   addWinsFromType(winsFromType: ResourceType) {
@@ -17,14 +17,14 @@ export class Resource {
       throw new Error('wins from type not found')
     }
 
-    this._winsFromTypes.push(winsFromType);
+    this._winsFromTypes.set(winsFromType, winsFromType);
   }
 
   get type(): ResourceType {
     return this._type;
   }
 
-  get winsFromTypes(): ResourceType[] {
-    return this._winsFromTypes;
+  doIWinFromType(resourceType: ResourceType): boolean {
+    return this._winsFromTypes.has(resourceType);
   }
 }

@@ -49,15 +49,15 @@ export class Game {
 
   getResult(): string {
     if (this._playerOneChoice === this._playerTwoChoice) {
-      return `Game ${this._count.toString()}: result is tie`;
+      return `game ${this._count.toString()}: result is tie`;
     }
 
     const resource: Resource = this._resources.get(this._playerOneChoice);
 
-    if (resource.winsFromTypes.includes(this._playerTwoChoice)) {
-      return `Game ${this._count.toString()}: player one won`;
+    if (resource.doIWinFromType(this._playerTwoChoice)) {
+      return `game ${this._count.toString()}: player one won`;
     }
 
-    return `Game ${this._count.toString()}: player two won`;
+    return `game ${this._count.toString()}: player two won`;
   }
 }
