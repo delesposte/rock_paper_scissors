@@ -1,0 +1,26 @@
+{
+  "name": "rock_paper_scissors",
+  "version": "1.0.0",
+  "description": "A scalable rock, paper and scissors game for study purpose",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx tsnd --respawn --transpile-only --ignore-watch node_modules --no-notify --cls --rs ./src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delesposte/rock_paper_scissors.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/delesposte/rock_paper_scissors/issues"
+  },
+  "homepage": "https://github.com/delesposte/rock_paper_scissors#readme",
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0"
+  },
+  "dependencies": {
+    "@types/node": "^18.6.4"
+  }
+}
