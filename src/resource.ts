@@ -1,28 +1,30 @@
+import { ResourceType } from "./resourceType";
+
 export class Resource {
-  private readonly _name: string;
-  private readonly _winsFrom: string[] = [];
+  private readonly _type: ResourceType;
+  private readonly _winsFromTypes: ResourceType[] = [];
 
-  constructor(name: string) {
-    if (!name) {
-      throw new Error('name not found')
+  constructor(type: ResourceType) {
+    if (!type) {
+      throw new Error('type not found')
     }
 
-    this._name = name;
+    this._type = type;
   }
 
-  addWinsFrom(resource: string) {
-    if (!resource) {
-      throw new Error('resource not found')
+  addWinsFromType(winsFromType: ResourceType) {
+    if (!winsFromType) {
+      throw new Error('wins from type not found')
     }
 
-    this._winsFrom.push(resource);
+    this._winsFromTypes.push(winsFromType);
   }
 
-  get name(): string {
-    return this._name;
+  get type(): ResourceType {
+    return this._type;
   }
 
-  get winsFrom(): string[] {
-    return this._winsFrom;
+  get winsFromTypes(): ResourceType[] {
+    return this._winsFromTypes;
   }
 }

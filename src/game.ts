@@ -1,9 +1,10 @@
 import { Resource } from "./resource";
+import { ResourceType } from "./resourceType";
 
 export class Game {
   private _count = 1;
-  private _playerOneChoice = '';
-  private _playerTwoChoice = '';
+  private _playerOneChoice = ResourceType.none;
+  private _playerTwoChoice = ResourceType.none;
   private _resources = new Map();
 
   constructor() { }
@@ -13,16 +14,16 @@ export class Game {
       throw new Error('resource not found')
     }
 
-    this._resources.set(resource.name, resource);
+    this._resources.set(resource.type, resource);
   }
 
   restart(): void {
-    this._playerOneChoice = '';
-    this._playerTwoChoice = '';
+    this._playerOneChoice = ResourceType.none;
+    this._playerTwoChoice = ResourceType.none;
     this._count++;
   }
 
-  set playerOneChoice(value: string) {
+  set playerOneChoice(value: ResourceType) {
     if (!value) {
       throw new Error('player one choice not found');
     }
@@ -34,7 +35,7 @@ export class Game {
     this._playerOneChoice = value;
   }
 
-  set playerTwoChoice(value: string) {
+  set playerTwoChoice(value: ResourceType) {
     if (!value) {
       throw new Error('player two choice not found');
     }
@@ -53,7 +54,7 @@ export class Game {
 
     const resource: Resource = this._resources.get(this._playerOneChoice);
 
-    if (resource.winsFrom.includes(this._playerTwoChoice)) {
+    if (resource.winsFromTypes.includes(this._playerTwoChoice)) {
       return `Game ${this._count.toString()}: player one won`;
     }
 
