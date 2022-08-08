@@ -5,19 +5,19 @@ import { ResourceType } from "./resourceType";
 export class GameFactory {
   private static createStone(): Resource {
     const resource = new Resource(ResourceType.stone);
-    resource.addWinsFromType(ResourceType.scissors);
+    resource.addWinsFrom(ResourceType.scissors);
     return resource;
   }
 
   private static createPaper(): Resource {
     const resource = new Resource(ResourceType.paper);
-    resource.addWinsFromType(ResourceType.stone);
+    resource.addWinsFrom(ResourceType.stone);
     return resource;
   }
 
   private static createScissors(): Resource {
     const resource = new Resource(ResourceType.scissors);
-    resource.addWinsFromType(ResourceType.paper);
+    resource.addWinsFrom(ResourceType.paper);
     return resource;
   }
 

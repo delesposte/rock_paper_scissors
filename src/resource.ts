@@ -12,7 +12,7 @@ export class Resource {
     this._type = resourceType;
   }
 
-  addWinsFromType(winsFromType: ResourceType) {
+  addWinsFrom(winsFromType: ResourceType) {
     if (!winsFromType) {
       throw new Error('wins from type not found')
     }
@@ -24,7 +24,7 @@ export class Resource {
     return this._type;
   }
 
-  doIWinFromType(resourceType: ResourceType): boolean {
+  winsFrom(resourceType: ResourceType): boolean {
     return this._winsFromTypes.has(resourceType);
   }
 }

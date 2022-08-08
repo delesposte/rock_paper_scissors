@@ -54,7 +54,7 @@ export class Game {
 
     const resource: Resource = this._resources.get(this._playerOneChoice);
 
-    if (resource.doIWinFromType(this._playerTwoChoice)) {
+    if (resource.winsFrom(this._playerTwoChoice)) {
       return `game ${this._count.toString()}: player one won`;
     }
 
